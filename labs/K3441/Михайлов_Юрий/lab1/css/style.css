@@ -148,3 +148,32 @@ body {
 .footer {
     background: var(--navy)
 }
+
+.filter-box {
+    padding: 1.5rem;
+    background: var(--cream);
+    border: 1px solid #e6e9ed
+}
+
+.form-control, .form-select {
+    border-color: #dce1e7;
+    padding: .7rem
+}
+
+.auth-wrap {
+    min-height: calc(100vh - 73px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    padding: 2rem
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    padding: 2.5rem;
+    border: 1px solid #e6e9ed;
+    box-shadow: 0 10px 30px rgba(16, 37, 63, .06)
+}
