@@ -177,3 +177,7 @@ body {
     border: 1px solid #e6e9ed;
     box-shadow: 0 10px 30px rgba(16, 37, 63, .06)
 }
+
+.detail-image {
+    height: 420px
+}
