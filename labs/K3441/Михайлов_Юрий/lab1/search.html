@@ -24,7 +24,7 @@
             <option>Дом</option>
             <option>Студия</option>
         </select></div>
-        <div class="col-md-3"><label class="form-label">Район</label><select id="typeFilter" class="form-select">
+        <div class="col-md-3"><label class="form-label">Район</label><select id="locationFilter" class="form-select">
             <option>Любой район</option>
             <option>Центральный</option>
             <option>Приморский</option>
@@ -33,13 +33,19 @@
                                                                               type="number" placeholder="₽"></div>
         <div class="col-md-2"><label class="form-label">Цена до</label><input id="priceFilter" class="form-control"
                                                                               type="number" placeholder="₽"></div>
-        <div class="col-md-2 d-flex align-items-end">
-            <button class="btn btn-primary w-100" type="submit">Найти</button>
+        <div class="col-md-2"><label class="form-label">Сортировка</label><select id="sortFilter" class="form-select">
+            <option value="default">Рекомендуемые</option>
+            <option value="cheap">Сначала дешевле</option>
+            <option value="expensive">Сначала дороже</option>
+        </select></div>
+        <div class="col-md-2 d-flex align-items-end gap-2">
+            <button class="btn btn-primary flex-grow-1" type="submit">Найти</button>
+            <button id="resetFilter" class="btn btn-outline-secondary" type="button">Сбросить</button>
         </div>
     </form>
     <div class="row g-4">
         <div class="property-column col-md-6 col-lg-4">
-            <article class="property-card" data-type="Квартира" data-price="65000">
+            <article class="property-card" data-type="Квартира" data-location="Приморский" data-price="65000">
                 <div class="property-image image-one"><span class="badge badge-soft">Квартира</span></div>
                 <div class="p-4"><h2 class="h5">Светлая квартира у парка</h2>
                     <p class="text-muted small">Приморский район</p><strong>65 000 ₽ <small
@@ -48,7 +54,7 @@
             </article>
         </div>
         <div class="property-column col-md-6 col-lg-4">
-            <article class="property-card" data-type="Дом" data-price="120000">
+            <article class="property-card" data-type="Дом" data-location="Всеволожский" data-price="120000">
                 <div class="property-image image-two"><span class="badge badge-soft">Дом</span></div>
                 <div class="p-4"><h2 class="h5">Загородный дом с террасой</h2>
                     <p class="text-muted small">Всеволожский район</p><strong>120 000 ₽ <small
@@ -57,7 +63,7 @@
             </article>
         </div>
         <div class="property-column col-md-6 col-lg-4">
-            <article class="property-card" data-type="Студия" data-price="48000">
+            <article class="property-card" data-type="Студия" data-location="Центральный" data-price="48000">
                 <div class="property-image image-three"><span class="badge badge-soft">Студия</span></div>
                 <div class="p-4"><h2 class="h5">Студия в центре города</h2>
                     <p class="text-muted small">Центральный район</p><strong>48 000 ₽ <small
@@ -70,5 +76,8 @@
 <script src="js/app.js"></script>
 </body>
 </html>
+
+
+
 
 

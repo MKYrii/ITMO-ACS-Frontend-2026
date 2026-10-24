@@ -20,8 +20,12 @@
                                                                             placeholder="Ваше имя"><label
                 class="form-label">Email</label><input name="email" required class="form-control mb-3" type="email"
                                                        placeholder="you@example.com"><label
-                class="form-label">Пароль</label><input name="password" required class="form-control mb-4"
-                                                        type="password" placeholder="Не менее 6 символов">
+                class="form-label">Пароль</label>
+            <div class="input-group mb-4"><input id="password" name="password" required class="form-control"
+                                                 type="password" placeholder="Не менее 6 символов">
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password="#password">Показать
+                </button>
+            </div>
             <button class="btn btn-gold w-100" type="submit">Зарегистрироваться</button>
         </form>
     </div>
@@ -29,4 +33,6 @@
 <script src="js/app.js"></script>
 </body>
 </html>
+
+
 

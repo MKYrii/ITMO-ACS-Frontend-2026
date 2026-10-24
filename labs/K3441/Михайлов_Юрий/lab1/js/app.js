@@ -24,10 +24,12 @@ document.querySelector('#loginForm')?.addEventListener('submit', (event) => {
 document.querySelector('#filterForm')?.addEventListener('submit', (event) => {
     event.preventDefault();
     const type = document.querySelector('#typeFilter').value;
+    const location = document.querySelector('#locationFilter')?.value || '';
     const max = Number(document.querySelectorAll('#priceFilter')[1]?.value) || Infinity;
     document.querySelectorAll('.property-column').forEach((column) => {
         const card = column.querySelector('[data-type]');
-        const visible = (!type || type === 'Любой тип' || card.dataset.type === type) && Number(card.dataset.price) <= max;
+        const locationMatches = !location || location === 'Любой район' || card.dataset.location === location;
+        const visible = (!type || type === 'Любой тип' || card.dataset.type === type) && locationMatches && Number(card.dataset.price) <= max;
         column.classList.toggle('d-none', !visible);
     });
 });
@@ -65,3 +67,28 @@ function renderMessages() {
 }
 
 renderMessages();
+
+document.querySelector('#resetFilter')?.addEventListener('click', () => {
+    document.querySelector('#filterForm').reset();
+    document.querySelectorAll('.property-column').forEach((column) => column.classList.remove('d-none'));
+});
+
+document.querySelector('#sortFilter')?.addEventListener('change', (event) => {
+    const list = document.querySelector('#filterForm').nextElementSibling;
+    const cards = [...list.querySelectorAll('.property-column')];
+    cards.sort((a, b) => {
+        const first = Number(a.querySelector('[data-price]').dataset.price);
+        const second = Number(b.querySelector('[data-price]').dataset.price);
+        return event.target.value === 'cheap' ? first - second : event.target.value === 'expensive' ? second - first : 0;
+    });
+    cards.forEach((card) => list.appendChild(card));
+});
+
+for (const button of document.querySelectorAll('[data-toggle-password]')) {
+    button.addEventListener('click', () => {
+        const input = document.querySelector(button.dataset.togglePassword);
+        input.type = input.type === 'password' ? 'text' : 'password';
+        button.textContent = input.type === 'password' ? 'Показать' : 'Скрыть';
+    });
+}
+

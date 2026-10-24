@@ -18,8 +18,12 @@
         <form id="loginForm"><label class="form-label">Email</label><input name="email" required
                                                                            class="form-control mb-3" type="email"
                                                                            placeholder="you@example.com"><label
-                class="form-label">Пароль</label><input name="password" required class="form-control mb-4"
-                                                        type="password" placeholder="Введите пароль">
+                class="form-label">Пароль</label>
+            <div class="input-group mb-4"><input id="password" name="password" required class="form-control"
+                                                 type="password" placeholder="Введите пароль">
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password="#password">Показать
+                </button>
+            </div>
             <button class="btn btn-primary w-100 mb-3" type="submit">Войти</button>
             <p class="text-center small text-muted mb-0">Нет аккаунта? <a href="register.html" class="link-gold">Зарегистрироваться</a>
             </p></form>
@@ -28,4 +32,6 @@
 <script src="js/app.js"></script>
 </body>
 </html>
+
+
 
