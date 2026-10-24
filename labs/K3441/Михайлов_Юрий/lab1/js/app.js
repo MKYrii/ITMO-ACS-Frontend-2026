@@ -39,3 +39,29 @@ document.querySelector('#requestForm')?.addEventListener('submit', (event) => {
     document.querySelector('#requestResult').textContent = 'Заявка отправлена. Мы свяжемся с вами.';
 });
 
+
+document.querySelector('#messageForm')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = document.querySelector('#messageText');
+    const text = input.value.trim();
+    if (!text) return;
+    const messages = JSON.parse(localStorage.getItem('spbRentMessages') || '[]');
+    messages.push({recipient: 'Алексей Смирнов', text, date: new Date().toLocaleDateString('ru-RU')});
+    localStorage.setItem('spbRentMessages', JSON.stringify(messages));
+    input.value = '';
+    renderMessages();
+});
+
+function renderMessages() {
+    const list = document.querySelector('#messageList');
+    if (!list) return;
+    const messages = JSON.parse(localStorage.getItem('spbRentMessages') || '[]');
+    messages.forEach((message) => {
+        const item = document.createElement('div');
+        item.className = 'list-group-item p-4';
+        item.innerHTML = `<h2 class="h6 mb-1">${message.recipient}</h2><p class="mb-1">${message.text}</p><small class="text-muted">${message.date}</small>`;
+        list.appendChild(item);
+    });
+}
+
+renderMessages();

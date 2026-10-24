@@ -181,3 +181,29 @@ body {
 .detail-image {
     height: 420px
 }
+
+.chat-box {
+    max-width: 760px;
+    padding: 1.5rem;
+    background: var(--cream);
+    border: 1px solid #e6e9ed
+}
+
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.chat-message {
+    max-width: 75%;
+    padding: .7rem 1rem;
+    background: #fff;
+    border: 1px solid #e1e5ea
+}
+
+.chat-message-own {
+    align-self: flex-end;
+    background: var(--navy);
+    color: #fff
+}
