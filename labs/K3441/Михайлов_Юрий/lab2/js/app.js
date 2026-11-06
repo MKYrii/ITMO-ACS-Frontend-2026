@@ -15,6 +15,17 @@ document.querySelectorAll('[data-logout]').forEach((button) => button.addEventLi
 }));
 updateAuthNavigation();
 
+document.querySelector('#requestViewingButton')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (!localStorage.getItem('spbRentToken')) {
+        document.querySelector('#requestResult').textContent = 'Зарегистрируйтесь или войдите в аккаунт для записи на просмотр';
+        document.querySelector('#requestResult').classList.remove('text-success');
+        document.querySelector('#requestResult').classList.add('text-danger');
+        return;
+    }
+    bootstrap.Modal.getOrCreateInstance(document.querySelector('#requestModal')).show();
+});
+
 async function api(path, options = {}) {
     const token = localStorage.getItem('spbRentToken');
     const response = await fetch(`${API_URL}${path}`, {
