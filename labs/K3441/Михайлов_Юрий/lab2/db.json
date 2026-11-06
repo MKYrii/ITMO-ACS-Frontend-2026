@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "email": "y@ex.com",
+      "password": "$2a$10$FcKd3gGsgCuB41n2G9f.C.j4uTh1tZkIYdSR4S5LaHf/jG9dAAdoe",
+      "name": "yriy",
+      "id": 1
+    }
+  ],
+  "messages": [],
+  "requests": [
+    {
+      "name": "1",
+      "phone": "1",
+      "property": "Светлая квартира у парка",
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "_auth": {
+    "users": 600,
+    "messages": 640,
+    "requests": 640
+  }
+}
