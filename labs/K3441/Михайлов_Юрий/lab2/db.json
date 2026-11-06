@@ -5,6 +5,12 @@
       "password": "$2a$10$03tVfxaa2S2EezlgWG/hr.ADsW4.dZkF/UMrqlcEXdiGlQ6T0jV/O",
       "name": "den",
       "id": 1
+    },
+    {
+      "email": "y@ex.com",
+      "password": "$2a$10$jfa7A/aEjxjMH9nEDehVzOWqsHX3sMdNuWh8Lspa/TtuZNxs2dYGm",
+      "name": "yriy",
+      "id": 2
     }
   ],
   "properties": [
@@ -57,6 +63,15 @@
       "propertyId": 1,
       "own": true,
       "id": 2
+    },
+    {
+      "recipient": "Алексей Смирнов",
+      "text": "ыа",
+      "date": "06.11.2026",
+      "userId": 2,
+      "propertyId": 1,
+      "own": true,
+      "id": 3
     }
   ],
   "requests": [],

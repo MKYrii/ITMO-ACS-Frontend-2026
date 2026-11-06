@@ -4,7 +4,7 @@ function propertyCard(property, compact = false) {
     const wrapper = document.createElement(compact ? 'article' : 'div');
     wrapper.className = compact ? 'col-md-4' : 'property-column col-md-6 col-lg-4';
     wrapper.innerHTML = `<article class="property-card" data-type="${property.type}" data-location="${property.location}" data-price="${property.price}">
-        <div class="property-image" style="background-image: linear-gradient(180deg, transparent, rgba(0,0,0,.12)), url('${property.image}')"><span class="badge badge-soft">${property.type}</span></div>
+        <div class="property-image"><svg class="property-svg-image" viewBox="0 0 100 100" role="img" aria-label="Изображение: ${property.title}" preserveAspectRatio="xMidYMid slice"><image href="${property.image}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/></svg><span class="badge badge-soft property-image-badge">${property.type}</span></div>
         <div class="p-4"><h2 class="h5">${property.title}</h2><p class="text-muted small">${property.location} район</p>
         <strong>${money(property.price)} <small class="text-muted fw-normal">/ месяц</small></strong>
         <a class="btn btn-outline-primary btn-sm float-end" href="property.html?id=${property.id}">Подробнее</a></div></article>`;
@@ -23,7 +23,7 @@ async function loadProperties() {
             const property = properties.find((item) => String(item.id) === id);
             if (property) {
                 const root = document.querySelector('#propertyDetails');
-                root.querySelector('[data-property-image]').style.backgroundImage = `url('${property.image}')`;
+                root.querySelector('[data-property-image]').innerHTML = `<svg class="property-svg-image" viewBox="0 0 100 100" role="img" aria-label="Изображение: ${property.title}" preserveAspectRatio="xMidYMid slice"><image href="${property.image}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/></svg>`;
                 root.querySelector('[data-property-title]').textContent = property.title;
                 root.querySelector('[data-property-label]').textContent = `${property.type.toUpperCase()} · ${property.location.toUpperCase()} РАЙОН`;
                 root.querySelector('[data-property-price]').textContent = `${money(property.price)} / месяц`;
@@ -38,7 +38,7 @@ async function loadProperties() {
 document.querySelector('#filterForm')?.addEventListener('submit', (event) => {
     event.preventDefault();
     const type = document.querySelector('#typeFilter').value, locationFilter = document.querySelector('#locationFilter').value;
-    const prices = document.querySelectorAll('#priceFilter'); const min = Number(prices[0].value) || 0; const max = Number(prices[1].value) || Infinity;
+    const min = Number(document.querySelector('#minPrice').value) || 0; const max = Number(document.querySelector('#maxPrice').value) || Infinity;
     document.querySelectorAll('.property-column').forEach((column) => {
         const card = column.querySelector('[data-type]');
         column.classList.toggle('d-none', !((type === 'Любой тип' || card.dataset.type === type) && (locationFilter === 'Любой район' || card.dataset.location === locationFilter) && Number(card.dataset.price) >= min && Number(card.dataset.price) <= max));

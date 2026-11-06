@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="navbar bg-white border-bottom">
+<nav aria-label="Основная навигация" class="navbar bg-white border-bottom">
     <div class="container py-2"><a class="navbar-brand brand" href="index.html">Spb<span>Rent</span></a>
         <div class="ms-auto"><a class="nav-link d-inline-block me-3" href="login.html">Войти</a><a class="btn btn-gold"
                                                                                                    href="register.html">Регистрация</a>
@@ -20,22 +20,23 @@
 <main class="container py-5"><p class="eyebrow mb-2">ПОИСК НЕДВИЖИМОСТИ</p>
     <h1 class="section-title mb-4">Подберите свой вариант</h1>
     <form id="filterForm" class="filter-box row g-3 mb-5">
-        <div class="col-md-3"><label class="form-label">Тип объекта</label><select id="typeFilter" class="form-select">
+        <div class="col-md-3"><label class="form-label" for="typeFilter">Тип объекта</label><select id="typeFilter" class="form-select">
             <option>Любой тип</option>
             <option>Квартира</option>
             <option>Дом</option>
             <option>Студия</option>
         </select></div>
-        <div class="col-md-3"><label class="form-label">Район</label><select id="locationFilter" class="form-select">
+        <div class="col-md-3"><label class="form-label" for="locationFilter">Район</label><select id="locationFilter" class="form-select">
             <option>Любой район</option>
             <option>Центральный</option>
             <option>Приморский</option>
+            <option>Всеволожский</option>
         </select></div>
-        <div class="col-md-2"><label class="form-label">Цена от</label><input id="priceFilter" class="form-control"
+        <div class="col-md-2"><label class="form-label" for="minPrice">Цена от</label><input id="minPrice" class="form-control" aria-label="Минимальная цена"
                                                                               type="number" placeholder="₽"></div>
-        <div class="col-md-2"><label class="form-label">Цена до</label><input id="priceFilter" class="form-control"
+        <div class="col-md-2"><label class="form-label" for="maxPrice">Цена до</label><input id="maxPrice" class="form-control" aria-label="Максимальная цена"
                                                                               type="number" placeholder="₽"></div>
-        <div class="col-md-2"><label class="form-label">Сортировка</label><select id="sortFilter" class="form-select">
+        <div class="col-md-2"><label class="form-label" for="sortFilter">Сортировка</label><select id="sortFilter" class="form-select">
             <option value="default">Рекомендуемые</option>
             <option value="cheap">Сначала дешевле</option>
             <option value="expensive">Сначала дороже</option>
@@ -75,7 +76,7 @@
         </div>
     </div>
 </main>
-<script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/properties.js"></script><script src="js/messages.js"></script><script src="js/app.js"></script>
+<script src="js/theme.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/properties.js"></script><script src="js/messages.js"></script><script src="js/app.js"></script>
 </body>
 </html>
 
